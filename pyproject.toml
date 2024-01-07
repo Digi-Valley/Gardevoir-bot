@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "gardevoir-bot"
+
+version = "0.1dev"
+description = "This is a Telegram bot that controls messages and participants in a group."
+repository = "https://github.com/Digi-Valley/Gardevoir-bot/"
+authors = ["SavinDevelop <savinnikita602@gmail.com>", "CBoYXD <>"]
+license = "MIT"
+readme = "README.md"
+
+packages = [{ include = "src" },]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiogram = "^3.3.0"
+pydantic = "^2.5.3"
+pydantic-settings = "^2.1.0"
+
+
+[tool.poetry.group.develop.dependencies]
+ruff = "^0.1.11"
+mypy = "^1.8.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "C",    # flake8-comprehensions
+    "B",    # flake8-bugbear
+    "UP",   # pyupgrade
+]
+ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
+    "W191", # indentation contains tabs
+]
